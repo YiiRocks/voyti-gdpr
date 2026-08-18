@@ -14,8 +14,8 @@ return [
         'class' => PrivacyController::class,
         '__construct()' => [
             'gdprConfig' => [
-                'gdprExportProperties' => $params['yiirocks/voyti-gdpr']['gdprExportProperties'] ?? [],
-                'gdprAnonymizePrefix' => $params['yiirocks/voyti-gdpr']['gdprAnonymizePrefix'] ?? 'GDPR',
+                'gdprExportProperties' => $params['yiirocks/voyti']['gdpr']['gdprExportProperties'] ?? [],
+                'gdprAnonymizePrefix' => $params['yiirocks/voyti']['gdpr']['gdprAnonymizePrefix'] ?? 'GDPR',
             ],
         ],
     ],
