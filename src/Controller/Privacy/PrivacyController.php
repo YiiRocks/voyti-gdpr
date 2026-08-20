@@ -10,6 +10,7 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use YiiRocks\Voyti\Controller\RenderTrait;
 use YiiRocks\Voyti\Gdpr\Event\Gdpr\GdprEvent;
+use YiiRocks\Voyti\Helper\Views\MenuView;
 use YiiRocks\Voyti\Model\Form\Settings\ConsentForm;
 use YiiRocks\Voyti\Model\User;
 use YiiRocks\Voyti\Model\UserSessions;
@@ -76,6 +77,7 @@ final readonly class PrivacyController
         return $this->renderView('privacy/anonymize', [
             'form' => $form,
             'data' => [
+                'menu' => MenuView::account($this->config, $this->url, $this->translator()),
                 'formSubmitUrl' => $this->url->generate('voyti/user-privacy-anonymize'),
             ],
         ]);
