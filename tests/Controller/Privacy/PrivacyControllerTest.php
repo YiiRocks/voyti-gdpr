@@ -77,7 +77,7 @@ final class PrivacyControllerTest extends DatabaseTestCase
         $this->currentUser->login($user);
 
         // The configured host viewPath exists but has no privacy/anonymize.php in it, so
-        // resolveOwnViewPath() must fall back to this package's own bundled template.
+        // RenderTrait::resolveViewPath() must fall back to the shared views package's bundled template.
         $customViewPath = sys_get_temp_dir() . '/voyti-gdpr-test-' . uniqid();
         mkdir($customViewPath);
 

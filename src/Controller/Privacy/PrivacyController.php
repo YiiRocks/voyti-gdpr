@@ -10,7 +10,6 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use YiiRocks\Voyti\Controller\RenderTrait;
 use YiiRocks\Voyti\Gdpr\Event\Gdpr\GdprEvent;
-use YiiRocks\Voyti\Helper\Views\VoytiCommonParametersInjection;
 use YiiRocks\Voyti\Model\Form\Settings\ConsentForm;
 use YiiRocks\Voyti\Model\User;
 use YiiRocks\Voyti\Model\UserSessions;
@@ -25,7 +24,6 @@ use Yiisoft\Security\PasswordHasher;
 use Yiisoft\Security\Random;
 use Yiisoft\Translator\TranslatorInterface;
 use Yiisoft\User\CurrentUser;
-use Yiisoft\Yii\View\Renderer\CsrfViewInjection;
 use Yiisoft\Yii\View\Renderer\WebViewRenderer;
 
 /**
@@ -75,15 +73,12 @@ final readonly class PrivacyController
             }
         }
 
-        return $this->viewRenderer
-            ->withAddedInjections(CsrfViewInjection::class, VoytiCommonParametersInjection::class)
-            ->withViewPath($this->resolveOwnViewPath())
-            ->render('privacy/anonymize', [
-                'form' => $form,
-                'data' => [
-                    'formSubmitUrl' => $this->url->generate('voyti/user-privacy-anonymize'),
-                ],
-            ]);
+        return $this->renderView('privacy/anonymize', [
+            'form' => $form,
+            'data' => [
+                'formSubmitUrl' => $this->url->generate('voyti/user-privacy-anonymize'),
+            ],
+        ]);
     }
 
     public function export(): ResponseInterface
@@ -157,20 +152,5 @@ final readonly class PrivacyController
     private function getHomeRoute(): string
     {
         return 'home';
-    }
-
-    /**
-     * RenderTrait::resolveViewPath() always resolves relative to core's own package root (a
-     * trait's __DIR__ is fixed to the file it's physically defined in, regardless of which class
-     * uses it), so it can never find this package's own bundled views. Mirrors the same
-     * host-override-then-bundled-fallback logic, rooted at this package's own directory instead.
-     */
-    private function resolveOwnViewPath(): string
-    {
-        if ($this->config->viewPath !== null && is_file($this->config->viewPath . '/privacy/anonymize.php')) {
-            return $this->config->viewPath;
-        }
-
-        return dirname(__DIR__, 3) . '/resources/views/' . $this->config->webTheme->value;
     }
 }
