@@ -2,7 +2,7 @@
 
 ## 1.0.2 under development
 
-- TBD
+- Extract `PrivacyController`'s export and anonymize logic into dedicated `GdprExportService` and `AnonymizeUserService` classes.
 
 ## 1.0.1 — August 21, 2026
 
