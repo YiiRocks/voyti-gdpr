@@ -1,8 +1,8 @@
 # Yii3 Voyti GDPR Changelog
 
-## 1.0.2 under development
+## 1.0.2 - August 30, 2026
 
-- Extract `PrivacyController`'s export and anonymize logic into dedicated `GdprExportService` and `AnonymizeUserService` classes.
+- Chg: Extract `PrivacyController`'s export and anonymize logic into dedicated `GdprExportService` and `AnonymizeUserService` classes.
 
 ## 1.0.1 — August 21, 2026
 
