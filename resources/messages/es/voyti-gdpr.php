@@ -10,4 +10,5 @@ return [
     'voyti.view.privacy.export_data' => 'Exportar datos personales',
     'voyti.view.privacy.export_button' => 'Descargar mis datos',
     'voyti.view.anonymize.confirm_label' => 'Ingresa tu contraseña para confirmar la anonimización de la cuenta',
+    'voyti.view.anonymize.invalid_password' => 'Contraseña incorrecta',
 ];

@@ -10,4 +10,5 @@ return [
     'voyti.view.privacy.export_data' => 'Persoonlijke gegevens exporteren',
     'voyti.view.privacy.export_button' => 'Mijn gegevens downloaden',
     'voyti.view.anonymize.confirm_label' => 'Voer uw wachtwoord in om de anonimisering van het account te bevestigen',
+    'voyti.view.anonymize.invalid_password' => 'Onjuist wachtwoord',
 ];

@@ -124,6 +124,11 @@ final class PrivacyControllerTest extends DatabaseTestCase
             $this->assertNotNull($updated->getBlockedAt());
         } else {
             self::assertStringContainsString('anonymize', $html);
+            self::assertStringContainsString('Incorrect password', $html);
+            self::assertMatchesRegularExpression(
+                '#id="anonymize-password">\s*<div>Incorrect password</div>#',
+                $html,
+            );
             $this->assertFalse($updated->isAnonymized());
         }
     }

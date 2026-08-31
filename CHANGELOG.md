@@ -2,6 +2,8 @@
 
 ## 1.0.3 under development
 
+- Bug: Show an "Incorrect password" error on the anonymize form when password confirmation fails.
+
 ## 1.0.2 - August 30, 2026
 
 - Chg: Extract `PrivacyController`'s export and anonymize logic into dedicated `GdprExportService` and `AnonymizeUserService` classes.

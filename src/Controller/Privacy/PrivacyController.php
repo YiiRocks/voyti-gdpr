@@ -61,6 +61,11 @@ final readonly class PrivacyController
                     ],
                 ]);
             }
+
+            $form->addError(
+                $this->translator->translate('voyti.view.anonymize.invalid_password', category: 'voyti-gdpr'),
+                ['password'],
+            );
         }
 
         return $this->renderView('privacy/anonymize', [

@@ -10,4 +10,5 @@ return [
     'voyti.view.privacy.export_data' => 'Экспортировать личные данные',
     'voyti.view.privacy.export_button' => 'Загрузить мои данные',
     'voyti.view.anonymize.confirm_label' => 'Введите пароль для подтверждения анонимизации аккаунта',
+    'voyti.view.anonymize.invalid_password' => 'Неверный пароль',
 ];
